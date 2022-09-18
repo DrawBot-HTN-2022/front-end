@@ -39,7 +39,6 @@ const run = async () => {
     socket.onmessage = (message) => {
       let msg = '';
       const res = JSON.parse(message.data);
-      console.log(res);
       texts[res.audio_start] = res.text;
       const keys = Object.keys(texts);
       keys.sort((a, b) => a - b);
@@ -56,7 +55,17 @@ const run = async () => {
         socket = null;
         buttonEl.innerText = 'Start Recording';
         buttonEl.style.cursor = 'pointer';
-        console.log(res.text.replace(".", "").toLowerCase() + ", high constrast, blank background");
+
+        const content = res.text.replace(".", "").toLowerCase() + ", high constrast, blank background" 
+        fetch("http://192.168.1.182:8000/draw", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "prompt": content
+          })
+        }).then(res => console.log(res))
       }
     };
 
@@ -109,4 +118,4 @@ const run = async () => {
   buttonEl.style.cursor = isRecording ? 'not-allowed' : 'pointer';
 };
 
-buttonEl.addEventListener('click', () => run());
+buttonEl.addEventListener("click", () => run());
