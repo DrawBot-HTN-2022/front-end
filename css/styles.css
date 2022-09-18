@@ -1,0 +1,72 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #8DCECC;
+  height: 100vh;
+}
+
+hr {
+  background-color: #FFF;
+  color: #FFF;
+  width: 85vw;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.title {
+  color: #FFF;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 120px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 524px) {
+  .title {
+    font-size: 4rem;
+  }
+  .subtitle {
+    font-size: 0.5rem;
+  }
+  .real-time-interface__button {
+    font-size: 0.5rem;
+  }
+  .real-time-interface__message {
+    font-size: 0.5rem;
+  }
+}
+
+.subtitle {
+  color: #022F40;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.real-time-interface__button {
+  display: flex;
+  padding: 0.5em 1em;
+  border-radius: 1rem;
+  justify-content: center;
+  cursor: pointer;
+  background: #022F40;
+  color: #FFF;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.real-time-interface__message {
+  text-align: center;
+  width: 70vw;
+  font-size: 18px;
+  font-weight: 400;
+  box-shadow: 0 0 32px 0 rgb(0 0 0 / 10%);
+  padding: 1em;
+  transition: .5s ease-in;
+  background: #FFF;
+  color: #022F40;
+  font-family: 'IBM Plex Sans', sans-serif;
+  height: 18px;
+}
